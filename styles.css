@@ -1,23 +1,27 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 body {
     transition: 0.3s;
     margin: 0;
     padding: 0;
 }
 
-header {
-    display: flex;
-    justify-content: flex-end;
-    padding: 30px;
-}
-
+/* dark mode switch */
 .switch {
     width: 80px;
     height: 40px;
+    margin: 3px;
     border-radius: 20px;
     background-color: rgb(48, 47, 47);
     position: relative;
 }
 
+/* the sliding flicker for the dark mode button*/
 .flicker {
     width: 30px;
     height: 30px;
@@ -29,12 +33,7 @@ header {
     transition: 0.3s;
     box-shadow: 
         inset 4px 4px 4px rgb(255, 255, 255),
-        inset -4px -4px 4px rgb(195 193 198 / 90%);
-}
-
-.dark {
-    background-color: rgb(57, 58, 58);
-    transition: 0.3s;
+        inset -4px -4px 4px rgba(196, 196, 197, 0.9);
 }
 
 .moon {
@@ -45,6 +44,11 @@ header {
     position: absolute;
     top: 5px;
     left: 45px;
+}
+
+.dark {
+    background-color: rgb(24, 24, 24);
+    transition: 0.3s;
 }
 
 .dark .flicker {
@@ -63,3 +67,89 @@ header {
     width: 50%;
     padding: 30px;
 }
+
+/*logo in the nav bar*/
+.logo {
+    margin-left: 5px;
+    flex-flow: column;
+    font-size: 40px;
+}
+
+.navbar {
+    background-color: rgb(151, 151, 151);
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  .nav-list {
+    list-style-type: none;
+  }
+
+  .nav-list .list-item {
+    display: inline-block;
+    padding: 20px 10px;
+  }
+
+  .navbar a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    color: rgb(0, 255, 255);
+  }
+
+  .menu {
+    display: none;
+}
+
+  .menu-line {
+    width: 20px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+  }
+
+  @media all and (max-width: 480px) {
+    
+    .navbar {
+        flex-direction: column;
+    }
+
+    .switch {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+        display: none;
+    }
+
+    .nav-list .list-item {
+        display: block;
+        border-top: 1px solid rgb(255, 255, 255);
+    }
+
+    .logo {
+        position: flex;
+        padding-right: 90%;
+    }
+
+    .active {
+        display: block;
+    }
+
+  }
